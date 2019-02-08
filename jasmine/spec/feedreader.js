@@ -40,6 +40,7 @@ $(function () {
           expect(feedUrl)
             .not
             .toBe('');
+          expect(typeof feedUrl).toBe('string');
         })
     })
 
@@ -55,6 +56,7 @@ $(function () {
           expect(feedName)
             .not
             .toBe('');
+          expect(typeof feedName).toBe('string');
         })
     })
   });
@@ -62,16 +64,13 @@ $(function () {
   describe('The menu', function () {
     var MENU_HIDDEN_CLASS_NAME = 'menu-hidden';
     var MENU_ICON_LINK_CLASS_NAME = 'menu-icon-link';
-    var bodyClassName;
     /*  a test that ensures the menu element is
       * hidden by default. You'll have to analyze the HTML and
       * the CSS to determine how we're performing the
       * hiding/showing of the menu element.
       */
     it('is hidden by default', function () {
-      bodyClassName = getBodyClassName();
-      expect(bodyClassName).toBeDefined();
-      expect(bodyClassName).toBe(MENU_HIDDEN_CLASS_NAME);
+      expect($('body').hasClass(MENU_HIDDEN_CLASS_NAME)).toBe(true);
     })
 
     /*  a test that ensures the menu changes
@@ -84,15 +83,11 @@ $(function () {
 
       // menu display when clicked
       $menuIconSelector.click();
-      bodyClassName = getBodyClassName();
-      expect(bodyClassName)
-        .not
-        .toBe(MENU_HIDDEN_CLASS_NAME);
+      expect($('body').hasClass(MENU_HIDDEN_CLASS_NAME)).toBe(false);
 
       // menu hide when clicked again
       $menuIconSelector.click();
-      bodyClassName = getBodyClassName();
-      expect(bodyClassName).toBe(MENU_HIDDEN_CLASS_NAME);
+      expect($('body').hasClass(MENU_HIDDEN_CLASS_NAME)).toBe(true);
     })
   })
 
@@ -144,13 +139,6 @@ $(function () {
 }());
 
 // helpers:
-var getBodyClassName = function () {
-  if ($) {
-    var $body = $('body');
-    return $body && $body.attr('class');
-  }
-}
-
 var getFeedEntriesText = function () {
   if ($) {
     var $feedEntry = $('.feed .entry')
