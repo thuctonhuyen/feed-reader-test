@@ -4,7 +4,7 @@ This project is a web-based application that reads RSS feeds. It also contains t
 
 # How to run the test
 
-You can clone this project and open index.html or navigate to https://thuctonhuyen.github.io/feed-reader-test/ and allow the site to load unsafe scripts. Then, scroll down to the bottom to see the result of all test suits.
+You can clone this project and open index.html or navigate to https://thuctonhuyen.github.io/feed-reader-test/. Then, scroll down to the bottom to see the result of all test suits.
 
 # Details about test suits
 1. Test suit #1: RSS Feeds
